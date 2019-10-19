@@ -1,14 +1,16 @@
-\documentclass[9pt]{article}
+\documentclass[8pt]{report}
 \usepackage{multicol}
 \usepackage[a4paper, portrait, margin=0.5in]{geometry}
 \setlength\parindent{0pt}
 \setlength{\abovedisplayshortskip}{-1pt}
 \setlength{\belowdisplayshortskip}{0pt} 
 \usepackage{graphicx}
+\usepackage{mathtools}
+\pagenumbering{gobble}
 
 \begin{document}
 Criteria: Managers should manage their firm’s resources with the
-ultimate objective of raising the firm’s market value.
+ultimate objective of raising the firm’s market value
 
 \begin{multicols}{2}
 [
@@ -40,17 +42,17 @@ Non-zero-start perpetuities: $$V_0 = \frac{(\frac{C}{r})}{(1+r)^t_{future}}$$ or
 
 Annuity - a finite stream of cash flows of identical
 magnitude and equal spacing in time: $$ PV_{annuity} = C \cdot \frac{1-(1+r)^{-T}}{r} $$
-Growing perpetuity - when r > g: $$ PV_{gp} = \frac{C}{r-g} $$
-Growing annuity: $$ PV_{ga} = \frac{C}{r-g} \cdot (1 - (\frac{1+r}{1+g})^{-T}) $$
+Growing perpetuity - when r $>$ g: $$ PV_{gp} = \frac{C}{r-g} $$
+Growing annuity: $$ PV_{ga} = \frac{C}{r-g} \cdot (1 - (\frac{1+r}{1+g})^{-T}) $$ 
 \end{multicols}
-
+\hrule
 \begin{multicols}{2}
-[]
+[] 
 Risky cash flows: \\
 $ExpectedValue(CF) = p_1(C_1) + p_2(C_2)$
 
 If you are risk averse, discount even higher rate: \\
-$\frac{C}{(1+r)+RP}$ where RP is risk premium
+$$\frac{C}{(1+r)+RP}$$ where RP is risk premium
 
 In other words, risk needs compensation: \\
 $PV = \sum_t \frac{E(C_t)}{(1+r+RP)^t}$
@@ -70,12 +72,20 @@ $$
 IRR = \sum_{t=0}^{T} E(FCF_t) / (1+IRR)^t == 0
 $$
 
+Accepting projects:
+\begin{enumerate}
+\item $NPV > 0$
+\item $IRR > 0$ though IRR has problems with multiple roots
+\item $PP < PredefinedCutoffPeriod$
+\item $PI = \frac{NPV}{InitialCashOutlay} > 0$
+\end{enumerate}
 \end{multicols}
 
 \begin{multicols}{2}
 [
 \section{Financing Decisions}
-Bonds (debt financing) and Stocks (equity financing)
+Bonds (debt) and Stocks (equity): remember  take the bootstrapping method for individual spot rates of a bond \\
+Interest rate risk: interest rate and bond price are inversely related: no interest rate risk if you hold till maturity, and risk is lower for bonds with shorter maturities and larger coupons
 ]
 The discount rate that equates the present value of a zero-coupon bond
 with maturity T to its current market price P is called the spot rate.
@@ -88,11 +98,19 @@ $$
 	P_T = \frac{CP}{1+y} + \frac{CP_2}{(1+y)^2} + ... + \frac{CP+F}{(1+y)^T}	
 $$ where y is Yield-to-Market - the unique rate that makes PV of all future payments equal to price
 
-Invested capital: $ IC = PPE + WC $ and \\
+Invested capital: $$ IC = PPE + WC $$ and \\
 $ ROIC = \frac{NOPLAT}{IC} $ and \\
-EBIT is $ EBIT = OPREV - OPEXP - DEPR $ and \\
-NOPLAT is $ NOPLAT = EBIT \cdot (1 - \tau) $ and \\
-Net WC is $ NWC = Operating Cash+Inventory+Receivables+Prepaid Expences - Payables - Deferred Revenue - Accrued Expenses $
+$ EBIT = OPREV - OPEXP - DEPR $
+
+$$ NOPLAT = EBIT \cdot (1 - \tau) $$ where
+
+ \begin{align*}
+ NWC = Operating Cash+Inventory + \\ 
+ Receivables + 
+ Prepaid Expences  - \\ 
+ Payables - Deferred Revenue - Accrued Expenses 
+ \end{align*}
+ 
 
 $$
 	FCF = NOPLAT + DEPR - CAPEX - \Delta NWC
@@ -100,7 +118,7 @@ $$
 
 Credit risk is $$ c_{debt} = risk_{free-rate} + credit spread $$
 \end{multicols}
-
+\hrule 
 \begin{multicols}{2}
 \paragraph{Stocks}
 Returns: $ R = \frac{divididend + P_{t+1} - P_t} {P_t}$ \\
@@ -120,18 +138,69 @@ Risk plane: $\{x=VOL, y=RATE\}$
 
 \begin{multicols}{2}
 \paragraph{CAPM}
-Two-Fund Separation Theorem: the optimal portfolio needs only two funds: the risk-free asset and the Tangent Portfolio
+Two-Fund Separation Theorem: the optimal portfolio needs only two funds: the risk-free asset and the Tangent Portfolio \\
 
+\begin{align*}
+Sharpe: SR_p = \frac{\mathbf{E}[R_p] - R_f}{\sigma[R_p]} \\
+CAPM | SML: \mathbf{E}[R_i] = R_f + \beta_f \cdot (\mathbf{E}[R_m] - R_f)
+\end{align*}
 
+For CML vs SML: both explain expected returns and feature the risk-free rate viz the market portfolio
+Differences: volatility vs beta, sharpe vs market premium, and efficient Portfolios vs all Stocks 
 \end{multicols}
 
 
 \begin{multicols}{2}
 [
 \section{Valuations}
-TODO
 ]
-TODO
+Capital Structure \\
+No taxes $(\tau=0)$
+
+\begin{enumerate}
+	\item MM1: V is independent of cap structure $D+E_L = V_L$ 
+	\item MM2: $R_{E,L} = R_A + (R_A-R_D) \frac{D}{E_L}, where R_A=R_{E,U}$ 
+	\item MM3: $WACC_L = \frac{E_L}{D+E_L} R_{E,L} + \frac{D}{D+E_L}R_D $
+\end{enumerate}
+
+With taxes $(\tau > 0)$ \\
+\begin{enumerate}
+	\item MM1: $ V+PV(ITS) = V_L$ 
+	\item MM2: $R_{E,L} = R_A + (R_A-R_D) (1-\tau) \frac{D}{E_L} $ 
+	\item MM3: $WACC_L = \frac{E_L}{D+E_L} R_{E,L} + \frac{D}{D+E_L}R_D(1-\tau) $	
+\end{enumerate}
+
 \end{multicols}
+\hrule
+
+\begin{multicols*}{2}
+DCF, APV, and Relative Valuation using Multiples 
+\begin{align*}
+	& DCF = EV_0 = \frac{FCF_1}{(1+WACC)} + ... + \frac{FCF_T \cdot TV_T}{(1+WACC)^T} \\
+	& APV: V_L = V_U + PV(ITS) \\
+	& PV(ITS) = \frac{ITS_1}{(1+R_D} + ... + \frac{ITS_T + TV_T}{(1+R_D)^T} \\
+\end{align*} 
+where 
+\begin{align*}
+& WACC = \frac{E}{D+E} R_E + \frac{D}{D+E} \cdot (1-\tau) R_D \\
+& TV_T = \frac{FCF_T \cdot (1+g)}{WACC-g} \\
+& B_L = B_U \cdot (1+\frac{D}{E}), with \;  \beta_U = \beta_A
+\end{align*}
+
+For comparison:
+\begin{enumerate}
+\item Unlever the $\beta_L$ of comparable firms to get their $\beta_U$
+\item Compute the average of $\beta_U$
+\item Relever the $\beta_U$ with the firm's $\frac{D}{E}$ ratio
+\end{enumerate}
+
+Using Multiples:
+\begin{enumerate}
+\item multiple consistently defined
+\item multiple uniformly estimated 
+\item problems: difficult to define comparable firms, challenge quantifying differences in different multiples, backward-looking, you may overpay due to lack of fundamentals! 
+\item example: $V_n = AvgComparable[\frac{EV}{EBIT}] \cdot EBIT_n$
+\end{enumerate}
+\end{multicols*}
 
 \end{document}
