@@ -1,0 +1,137 @@
+\documentclass[9pt]{article}
+\usepackage{multicol}
+\usepackage[a4paper, portrait, margin=0.5in]{geometry}
+\setlength\parindent{0pt}
+\setlength{\abovedisplayshortskip}{-1pt}
+\setlength{\belowdisplayshortskip}{0pt} 
+\usepackage{graphicx}
+
+\begin{document}
+Criteria: Managers should manage their firm’s resources with the
+ultimate objective of raising the firm’s market value.
+
+\begin{multicols}{2}
+[
+\section{Investment Decisions}
+Time Value of Money - Time and Uncertainty (risk). Dollar today does not equal dollar tomorrow.
+]
+"Always Draw A Timeline To Visualize The Timing of Cashflows"
+\begin{enumerate}
+\item Identify timing and amount of the cash flows. Visualize them in a
+timeline
+\item Compute relevant discount factors for different points in time: $(1 + r)^{-t}$
+\item Discount the single cash flows to time 0 using the corresponding
+discount factors
+\item Aggregate the cash flows at time 0
+\end{enumerate}
+
+$$c0----c1----c2----c3$$
+$$|-----|-----|-----|$$
+
+
+To move money forward: $$FV_t(c) = C \cdot (1+r)^t$$ 
+To move money backward: $$PV_t(C) = \frac{C}{(1+r)^t}$$
+Compounding: $$FV = \sum_t C_t \cdot (1+r)^{T-t}$$
+Discounting: $$PV = \sum_t \frac{C_t}{(1+r)^{T-t}}$$
+
+Perpetuity: $$PV_{perpetuity} = \frac{C}{r}$$
+Important: The first cash flow arrives one period from today
+Non-zero-start perpetuities: $$V_0 = \frac{(\frac{C}{r})}{(1+r)^t_{future}}$$ or $V_0 = C_{immediate} + \frac{C}{r}$
+
+Annuity - a finite stream of cash flows of identical
+magnitude and equal spacing in time: $$ PV_{annuity} = C \cdot \frac{1-(1+r)^{-T}}{r} $$
+Growing perpetuity - when r > g: $$ PV_{gp} = \frac{C}{r-g} $$
+Growing annuity: $$ PV_{ga} = \frac{C}{r-g} \cdot (1 - (\frac{1+r}{1+g})^{-T}) $$
+\end{multicols}
+
+\begin{multicols}{2}
+[]
+Risky cash flows: \\
+$ExpectedValue(CF) = p_1(C_1) + p_2(C_2)$
+
+If you are risk averse, discount even higher rate: \\
+$\frac{C}{(1+r)+RP}$ where RP is risk premium
+
+In other words, risk needs compensation: \\
+$PV = \sum_t \frac{E(C_t)}{(1+r+RP)^t}$
+
+\end{multicols}
+
+\begin{multicols}{2}
+[]
+Terminal value: steady state performance - FCF grow at constant rate
+
+$NPV = PV(benefits - costs)$
+$$
+NPV = \sum_{t=0}^{T} E(FCF_t) / (1+k)^t
+$$
+
+$$
+IRR = \sum_{t=0}^{T} E(FCF_t) / (1+IRR)^t == 0
+$$
+
+\end{multicols}
+
+\begin{multicols}{2}
+[
+\section{Financing Decisions}
+Bonds (debt financing) and Stocks (equity financing)
+]
+The discount rate that equates the present value of a zero-coupon bond
+with maturity T to its current market price P is called the spot rate.
+$$
+	sr_T = (\frac{F}{P_t})^{-1/T} - 1
+$$
+
+For coupon-bearing bond with varying annual rates:
+$$
+	P_T = \frac{CP}{1+y} + \frac{CP_2}{(1+y)^2} + ... + \frac{CP+F}{(1+y)^T}	
+$$ where y is Yield-to-Market - the unique rate that makes PV of all future payments equal to price
+
+Invested capital: $ IC = PPE + WC $ and \\
+$ ROIC = \frac{NOPLAT}{IC} $ and \\
+EBIT is $ EBIT = OPREV - OPEXP - DEPR $ and \\
+NOPLAT is $ NOPLAT = EBIT \cdot (1 - \tau) $ and \\
+Net WC is $ NWC = Operating Cash+Inventory+Receivables+Prepaid Expences - Payables - Deferred Revenue - Accrued Expenses $
+
+$$
+	FCF = NOPLAT + DEPR - CAPEX - \Delta NWC
+$$
+
+Credit risk is $$ c_{debt} = risk_{free-rate} + credit spread $$
+\end{multicols}
+
+\begin{multicols}{2}
+\paragraph{Stocks}
+Returns: $ R = \frac{divididend + P_{t+1} - P_t} {P_t}$ \\
+Covariance: $ Cov[R_A, R_B] = \sigma_{AB} == \rho_{AB}\sigma_A\sigma_B $ \\
+Correlation: $ \rho_{AB} = \frac{\sigma_{AB}} {\sigma_A \sigma_B} $\\
+
+
+The portfolio of two stocks, A and B: 
+$$
+	\mathbf{E}(R_p) = w_aE[R_a] + w_bE[R_b]
+$$
+$$
+	\mathbf{V}(R_p) = w_a^2\sigma_a^2 + w_b^2\sigma_b^2 + 2 w_a w_b \sigma_{ab}
+$$
+Risk plane: $\{x=VOL, y=RATE\}$
+\end{multicols}
+
+\begin{multicols}{2}
+\paragraph{CAPM}
+Two-Fund Separation Theorem: the optimal portfolio needs only two funds: the risk-free asset and the Tangent Portfolio
+
+
+\end{multicols}
+
+
+\begin{multicols}{2}
+[
+\section{Valuations}
+TODO
+]
+TODO
+\end{multicols}
+
+\end{document}
